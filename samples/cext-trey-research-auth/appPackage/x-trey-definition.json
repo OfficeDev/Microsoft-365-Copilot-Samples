@@ -7,10 +7,27 @@
     },
     "servers": [
         {
-            "url": "${{OPENAPI_SERVER_URL}}/api/",
+            "url": "${{OPENAPI_SERVER_URL}}/api",
             "description": "Production server"
         }
     ],
+    "components": {
+        "securitySchemes": {
+            "oAuth2AuthCode": {
+                "type": "oauth2",
+                "description": "OAuth configuration for the Trey Research service",
+                "flows": {
+                    "authorizationCode": {
+                        "authorizationUrl": "https://login.microsoftonline.com/${{AAD_APP_TENANT_ID}}/oauth2/v2.0/authorize",
+                        "tokenUrl": "https://login.microsoftonline.com/${{AAD_APP_TENANT_ID}}/oauth2/v2.0/token",
+                        "scopes": {
+                            "api://${{AAD_APP_CLIENT_ID}}/access_as_user": "Access Trey Research API as the user"
+                        }
+                    }
+                }
+            }
+        }
+    },
     "paths": {
         "/consultants/": {
             "get": {

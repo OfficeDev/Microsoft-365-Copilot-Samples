@@ -11,7 +11,7 @@
   },
   "icons": {
     "color": "TreyResearch-purple-192.png",
-    "outline": "TreyResearch-purple-32.png"
+    "outline": "outline.png"
   },
   "name": {
     "short": "Trey Research (Auth) ${{APP_NAME_SUFFIX}}",

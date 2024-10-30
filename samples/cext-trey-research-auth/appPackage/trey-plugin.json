@@ -566,7 +566,7 @@
         "reference_id":  "ODgzYTMwZDQtY2E5MS00Y2JiLWIwMjUtOWMwZjZkNzgyMGEwIyM4OGZmM2M2Ni1lM2MwLTQ5OGQtYTZhMi05MjI0NGVhMjBmOGQ="
       },
       "spec": {
-        "url": "trey-definition.json"
+        "url": "trey-definition.yml"
       },
       "run_for_functions": [
         "getConsultants",
