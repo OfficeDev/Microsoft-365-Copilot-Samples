@@ -63,17 +63,9 @@ The sample showcases the following plugin features:
 
 1. Press **CTRL+Shift+P** to open the command box and enter **Python: Create Environment** to create and activate your desired virtual environment.
 
-1. If your project doesn't yet have a file **env/.env.local.user**, then create one by copying **env/.env.local.user.sample**. If you do have such a file, ensure it includes these lines.
-
-~~~text
-SECRET_STORAGE_ACCOUNT_CONNECTION_STRING=UseDevelopmentStorage=true
-~~~
-
 1. OPTIONAL: Copy the files from the **/sampleDocs** folder to OneDrive or SharePoint. Add the location of these files in the `OneDriveAndSharePoint` capability in the declarative copilot (**/appPackage/trey-declarative-copilot.json**).
 
 ### Running the solution (after each build)
-
-> NOTE: This sample requires the private preview of Copilot for Microsoft 365 extensibility
 
 1. Press F5 to start the application. It will take a while on first run to download the dependencies. Eventually a browser window will open up and your package is installed.
 
