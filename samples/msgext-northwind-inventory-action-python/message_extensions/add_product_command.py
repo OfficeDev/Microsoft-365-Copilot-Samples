@@ -25,12 +25,10 @@ async def on_teams_messaging_extension_fetch_task(
             
             # Initialize initial parameters
             initial_parameters = {}
-            print("Action Data Products:", action)
-            # print("Task Parameters Products:", action.data.get("taskParameters"))
-
+           
             # Check if action has task parameters and assign them to initial_parameters
-            # if action.data and action.data.get("taskParameters"):
-            #     initial_parameters = action.data["taskParameters"]
+            if action.data and action.data.get("taskParameters"):
+                initial_parameters = action.data["taskParameters"]
             
             # Get categories  
             categories = await get_categories()
