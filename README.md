@@ -1,4 +1,4 @@
-# Copilot for Microsoft 365 samples
+# Microsoft 365 Copilot samples
 
 This repository contains samples that show how to write [agents and plugins for Microsoft 365 Copilot](https://learn.microsoft.com/microsoft-365-copilot/extensibility/).
 
@@ -14,10 +14,10 @@ This repository contains samples that show how to write [agents and plugins for 
 | -------- | --- | :-------: | ------- |
 | Geo-Locator Game | Declarative Agent | [JSON](./samples/cext-geolocator-game) | Copilot plays a guessing game about geography |
 | Trey Research | Declarative Agent with API Plugin | [TypeScript (no auth)](./samples//cext-trey-research/) [TypeScript (OAuth 2.0)](./samples/cext-trey-research-auth/) | Handles billing and project assignments for a hypothetical consulting company |
-| Northwind Inventory | Teams Message Exension | [.NET](./samples/msgext-northwind-inventory-csharp), [Python](./samples/msgext-northwind-inventory-python), [TypeScript](./samples/msgext-northwind-inventory-ts) | Plugin that allows users to query the Northwind Database
-| Document Search | Teams Message Exension | [.NET](./samples/msgext-doc-search-csharp), [JavaScript](./samples/msgext-doc-search-js) | Plugin that enables Hybrid Search (Vector + Semantic)
-| Product support | Teams Message Exension | [.NET](./samples/msgext-product-support-sso-csharp), [TypeScript](./samples/msgext-product-support-sso-ts) | Plugin that allows users to query the Products held in SharePoint Online team site via Microsoft Graph
-| Multi Parameters | Teams Message Exension | [.NET](./samples/msgext-multiparam-csharp), [JavaScript](./samples/msgext-multiparam-js), [TypeScript](./samples/msgext-multiparam-ts) | Plugin that demonstrates how to implement complex utterances and support deep retrieval
+| Northwind Inventory | Teams Message Extension | [.NET](./samples/msgext-northwind-inventory-csharp), [Python](./samples/msgext-northwind-inventory-python), [TypeScript](./samples/msgext-northwind-inventory-ts) | Plugin that allows users to query the Northwind Database
+| Document Search | Teams Message Extension | [.NET](./samples/msgext-doc-search-csharp), [JavaScript](./samples/msgext-doc-search-js) | Plugin that enables Hybrid Search (Vector + Semantic)
+| Product support | Teams Message Extension | [.NET](./samples/msgext-product-support-sso-csharp), [TypeScript](./samples/msgext-product-support-sso-ts) | Plugin that allows users to query the Products held in SharePoint Online team site via Microsoft Graph
+| Multi Parameters | Teams Message Extension | [.NET](./samples/msgext-multiparam-csharp), [JavaScript](./samples/msgext-multiparam-js), [TypeScript](./samples/msgext-multiparam-ts) | Plugin that demonstrates how to implement complex utterances and support deep retrieval
 
 ## Contributing
 

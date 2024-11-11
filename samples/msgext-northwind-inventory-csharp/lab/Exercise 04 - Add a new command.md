@@ -1,4 +1,4 @@
-# Building plugins for Microsoft Copilot for Microsoft 365
+# Building plugins for Microsoft 365 Copilot
 
 TABLE OF CONTENTS
 
@@ -11,7 +11,7 @@ TABLE OF CONTENTS
 
 ## Exercise 4 - Add a new command 
 
-In this exercise, you will enhance the Teams Message Extension (ME) / Copilot plugin by adding a new command. While the current message extension effectively provides information about products within the Northwind inventory database, it does not provide information related to Northwind’s customers. Your task is to introduce a new command associated with an API call that retrieves products ordered by a customer name specified by the user. This exercise assumes you have completed at least exercises 1 and 2. It's fine to skip Exercise 3 in case you don't have a Copilot for Microsoft 365 license.
+In this exercise, you will enhance the Teams Message Extension (ME) / Copilot plugin by adding a new command. While the current message extension effectively provides information about products within the Northwind inventory database, it does not provide information related to Northwind’s customers. Your task is to introduce a new command associated with an API call that retrieves products ordered by a customer name specified by the user. This exercise assumes you have completed at least exercises 1 and 2. It's fine to skip Exercise 3 in case you don't have a Microsoft 365 Copilot license.
 
 To do this you'll complete five tasks.
 1. **Extend the Message Extension / plugin User Interface** by modifying the Teams app manifest. This includes introducing a new command: **"companySearch"**. Note the UI for the Message Extension is an adaptive card where for Copilot it is text input and output in Copilot chat.
@@ -195,7 +195,7 @@ public async Task<List<IProductEx>> SearchProductsByCustomer(string companyName)
 ```
 # Step 5 - Run the App! Search for product by company name
 
-Now you're ready to test the sample as a plugin for Copilot for Microsoft 365.
+Now you're ready to test the sample as a plugin for Microsoft 365 Copilot.
 
 1. Delete the 'Northwest Inventory' app in Teams. This step is necessary since you are updating the manifest. Manifest updates require the app to be reinstalled. The cleanest way to do this is to first delete it in Teams.
 

@@ -2,12 +2,12 @@
   {
     "name": "officedev-copilot-for-m365-plugins-samples-msgext-multiparam-csharp",
     "source": "officedev",
-    "title": "Using multiple parameters in a plugin for Microsoft Copilot for Microsoft 365 using .NET",
-    "shortDescription": "This sample demonstrates how to use multiple parameters in a plugin for Microsoft Copilot for Microsoft 365 using .NET and Teams Toolkit for Visual Studio Code.",
-    "url": "https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-multiparam-csharp",
-    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-multiparam-csharp",
+    "title": "Using multiple parameters in a plugin for Microsoft 365 Copilot using .NET",
+    "shortDescription": "This sample demonstrates how to use multiple parameters in a plugin for Microsoft 365 Copilot using .NET and Teams Toolkit for Visual Studio Code.",
+    "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-multiparam-csharp",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-multiparam-csharp",
     "longDescription": [
-      "This sample demonstrates how to use multiple parameters in a plugin for Microsoft Copilot for Microsoft 365 using .NET and Teams Toolkit for Visual Studio. It demonstrates how developers can use multi parameters in Microsoft Copilot for Microsoft 365 to support complex utterances and deep retrieval."
+      "This sample demonstrates how to use multiple parameters in a plugin for Microsoft 365 Copilot using .NET and Teams Toolkit for Visual Studio. It demonstrates how developers can use multi parameters in Microsoft 365 Copilot to support complex utterances and deep retrieval."
     ],
     "creationDateTime": "2023-11-15",
     "updateDateTime": "2023-12-11",
@@ -33,7 +33,7 @@
       {
         "type": "image",
         "order": 50,
-        "url": "https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/raw/main/samples/msgext-multiparams-csharp/assets/preview.png",
+        "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/raw/main/samples/msgext-multiparams-csharp/assets/preview.png",
         "alt": "Plugin response from Copilot with reference preview Adaptive Card displayed"
       }
     ],
@@ -46,8 +46,8 @@
     ],
     "references": [
       {
-        "name": "Extend Microsoft Copilot for Microsoft 365",
-        "description": "Learn more about how to extend Microsoft Copilot for Microsoft 365",
+        "name": "Extend Microsoft 365 Copilot",
+        "description": "Learn more about how to extend Microsoft 365 Copilot",
         "url": "https://aka.ms/extendcopilotm365"
       },
       {

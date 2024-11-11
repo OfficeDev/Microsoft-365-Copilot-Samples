@@ -2,12 +2,12 @@
   {
     "name": "officedev-copilot-for-m365-plugins-samples-msgext-product-support-sso-ts",
     "source": "officedev",
-    "title": "Product support plugin for Microsoft Copilot for Microsoft 365 using TypeScript, SharePoint Online and Microsoft Graph",
-    "shortDescription": "This sample demonstrates how to use build a plugin for Microsoft Copilot for Microsoft 365 using TypeScript and Teams Toolkit for Visual Studio Code that returns data from SharePoint Online via Microsoft Graph.",
-    "url": "https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-product-support-sso-ts",
-    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-product-support-sso-ts",
+    "title": "Product support plugin for Microsoft 365 Copilot using TypeScript, SharePoint Online and Microsoft Graph",
+    "shortDescription": "This sample demonstrates how to use build a plugin for Microsoft 365 Copilot using TypeScript and Teams Toolkit for Visual Studio Code that returns data from SharePoint Online via Microsoft Graph.",
+    "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-product-support-sso-ts",
+    "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-product-support-sso-ts",
     "longDescription": [
-      "This sample implements a Teams message extension that can be used as a plugin for Microsoft Copilot for Microsoft 365. The message extension enables users to query the Products list in the Product support SharePoint Online team site via Microsoft Graph."
+      "This sample implements a Teams message extension that can be used as a plugin for Microsoft 365 Copilot. The message extension enables users to query the Products list in the Product support SharePoint Online team site via Microsoft Graph."
     ],
     "creationDateTime": "2024-07-11",
     "updateDateTime": "2024-08-29",
@@ -34,13 +34,13 @@
       {
         "type": "image",
         "order": 50,
-        "url": "https://raw.githubusercontent.com/OfficeDev/Copilot-for-M365-Samples/main/samples/msgext-product-support-sso-ts/assets/product-card.png",
+        "url": "https://raw.githubusercontent.com/OfficeDev/Microsoft-365-Copilot-Samples/main/samples/msgext-product-support-sso-ts/assets/product-card.png",
         "alt": "Plugin response from Copilot with reference preview Adaptive Card displayed"
       },
       {
         "type": "image",
         "order": 100,
-        "url": "https://raw.githubusercontent.com/OfficeDev/Copilot-for-M365-Samples/main/samples/msgext-product-support-sso-ts/assets/edit-card.png",
+        "url": "https://raw.githubusercontent.com/OfficeDev/Microsoft-365-Copilot-Samples/main/samples/msgext-product-support-sso-ts/assets/edit-card.png",
         "alt": "Plugin response from Copilot with an Adaptive Card displayed that can be used to update a product"
       }
     ],
@@ -58,8 +58,8 @@
     ],
     "references": [
       {
-        "name": "Extend Microsoft Copilot for Microsoft 365",
-        "description": "Learn more about how to extend Microsoft Copilot for Microsoft 365",
+        "name": "Extend Microsoft 365 Copilot",
+        "description": "Learn more about how to extend Microsoft 365 Copilot",
         "url": "https://aka.ms/extendcopilotm365"
       },
       {

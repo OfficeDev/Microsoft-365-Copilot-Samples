@@ -1,4 +1,4 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 TABLE OF CONTENTS
 

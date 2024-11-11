@@ -1,6 +1,6 @@
 ---
 page_type: sample
-description: This sample implements a Teams message extension that can be used as a plugin for Microsoft Copilot for Microsoft 365. The message extension allows users to query the Northwind Database.
+description: This sample implements a Teams message extension that can be used as a plugin for Microsoft 365 Copilot. The message extension allows users to query the Northwind Database.
 products:
 - office-teams
 - copilot-m365
@@ -13,7 +13,7 @@ languages:
 
 ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
-This sample implements a Teams message extension that can be used as a plugin for Microsoft Copilot for Microsoft 365. The message extension allows users to query the [Northwind Database](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases).
+This sample implements a Teams message extension that can be used as a plugin for Microsoft 365 Copilot. The message extension allows users to query the [Northwind Database](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases).
 
 ![Screenshot of the sample extension working in Copilot in Microsoft Teams](./lab/images/03-03a-response-on-chai.png)
 
@@ -28,7 +28,7 @@ Version|Manifest version|Date|Author|Comments
 - [Visual Studio 2022 17.10+](https://visualstudio.microsoft.com)
 - [Azure subscription](https://portal.azure.com)
 - [Teams Toolkit for Visual Studio](https://learn.microsoft.com/microsoftteams/platform/toolkit/toolkit-v4/install-teams-toolkit-vs?pivots=visual-studio-v17-7)
-- You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft Copilot for Microsoft 365 license to use the extension in Copilot.
+- You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft 365 Copilot license to use the extension in Copilot.
 - You will need to create [local Azure Storage](https://learn.microsoft.com/azure/storage/common/storage-use-azurite?tabs=visual-studio%2Cblob-storage#running-azurite-from-an-aspnet-project).
 
 ## Setup and use the sample
