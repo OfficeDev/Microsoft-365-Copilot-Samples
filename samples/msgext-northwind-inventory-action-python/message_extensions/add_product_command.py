@@ -22,7 +22,6 @@ async def on_teams_messaging_extension_fetch_task(
 ) -> MessagingExtensionActionResponse:
     try:
         if action.command_id == COMMAND_ID:
-            
             # Initialize initial parameters
             initial_parameters = {}
            
@@ -54,12 +53,15 @@ async def on_teams_messaging_extension_fetch_task(
                 for supplier in sup_array
             ]
 
-            card = cards.add_products_cards(category_choices, supplier_choices,initial_parameters.get("name", ""))
+            # Create adaptive card for adding products
+            card = cards.add_products_cards(category_choices, supplier_choices, initial_parameters.get("name", ""))
             
+            # Define task module task info
             task_info = TaskModuleTaskInfo(
                 card=card, height=500, title="Add a product", width=500
             )
 
+            # Create continue response with task info
             continue_response = TaskModuleContinueResponse(value=task_info)
             return MessagingExtensionActionResponse(task=continue_response)
 

@@ -7,10 +7,12 @@ from .model import Product, ProductEx, Supplier, Category, OrderDetail
 from adaptive_cards.utils import get_inventory_status
 from config import Settings
 
+# Global dictionaries to cache categories, suppliers, and order totals
 categories: Dict[str, Category] = None
 suppliers: Dict[str, Supplier] = None
 order_totals: Dict[str, OrderDetail] = None
 
+# Function to search products based on various filters
 async def search_products(
     product_name: str,
     category_name: str,
@@ -20,31 +22,37 @@ async def search_products(
 ) -> List[ProductEx]:
     result = await get_all_products_ex()
 
+    # Filter by product name
     if product_name:
         result = [
             p
             for p in result
             if p["ProductName"].lower().startswith(product_name.lower())
         ]
+    # Filter by category name
     if category_name:
         result = [
             p
             for p in result
             if p["CategoryName"].lower().startswith(category_name.lower())
         ]
+    # Filter by inventory status
     if inventory_status:
         result = [p for p in result if is_matching_status(inventory_status, p)]
+    # Filter by supplier city
     if supplier_city:
         result = [
             p
             for p in result
             if p["SupplierCity"].lower().startswith(supplier_city.lower())
         ]
+    # Filter by stock level
     if stock_level:
         result = [p for p in result if is_in_range(stock_level, p["UnitsInStock"])]
 
     return result
 
+# Function to get discounted products by category
 async def get_discounted_products_by_category(category_name: str) -> List[ProductEx]:
     result = await get_all_products_ex()
     result = [p for p in result if p["AverageDiscount"] > 5]
@@ -57,6 +65,7 @@ async def get_discounted_products_by_category(category_name: str) -> List[Produc
 
     return result
 
+# Function to get products by revenue range
 async def get_products_by_revenue_range(revenue_range: str) -> List[ProductEx]:
     result = await get_all_products_ex()
     if revenue_range:
@@ -69,6 +78,7 @@ async def get_products_by_revenue_range(revenue_range: str) -> List[ProductEx]:
 
     return result
 
+# Helper function to check if product matches inventory status
 def is_matching_status(inventory_status_query: str, product: ProductEx) -> bool:
     query = inventory_status_query.lower()
     if query.startswith("out"):
@@ -80,6 +90,7 @@ def is_matching_status(inventory_status_query: str, product: ProductEx) -> bool:
     else:
         return product["UnitsInStock"] > 0
 
+# Helper function to check if value is in range
 def is_in_range(range_expression: str, value: int) -> bool:
     result = False
     if "-" not in range_expression:
@@ -96,6 +107,7 @@ def is_in_range(range_expression: str, value: int) -> bool:
 
     return result
 
+# Function to load reference data from a table
 async def load_reference_data(table_name: str) -> Dict[str, Dict]:
     table_client = TableClient.from_connection_string(
         Settings.STORAGE_ACCOUNT_CONNECTION_STRING, table_name
@@ -107,6 +119,7 @@ async def load_reference_data(table_name: str) -> Dict[str, Dict]:
 
     return result
 
+# Function to load order totals from the database
 async def load_order_totals() -> Dict[str, Dict[str, float]]:
     table_client = TableClient.from_connection_string(
         Settings.STORAGE_ACCOUNT_CONNECTION_STRING, Settings.TABLE_NAME["ORDER_DETAIL"]
@@ -140,6 +153,7 @@ async def load_order_totals() -> Dict[str, Dict[str, float]]:
 
     return totals
 
+# Function to get all products with extended information
 async def get_all_products_ex() -> List[ProductEx]:
     global categories, suppliers, order_totals
     categories = categories or await load_reference_data(
@@ -159,6 +173,7 @@ async def get_all_products_ex() -> List[ProductEx]:
 
     return result
 
+# Helper function to convert entity to ProductEx
 def get_product_ex_for_entity(entity: dict) -> ProductEx:
     p: ProductEx = {
         "etag": entity.metadata.get("etag"),
@@ -205,6 +220,7 @@ def get_product_ex_for_entity(entity: dict) -> ProductEx:
 
     return p
 
+# Function to get a product by its ID
 async def get_product_ex(product_id: int) -> ProductEx:
     table_client = TableClient.from_connection_string(
         Settings.STORAGE_ACCOUNT_CONNECTION_STRING, Settings.TABLE_NAME["PRODUCT"]
@@ -216,6 +232,7 @@ async def get_product_ex(product_id: int) -> ProductEx:
 
     return get_product_ex_for_entity(entity)
 
+# Function to update a product
 async def update_product(updated_product: ProductEx) -> None:
     table_client = TableClient.from_connection_string(
         Settings.STORAGE_ACCOUNT_CONNECTION_STRING, Settings.TABLE_NAME["PRODUCT"]
@@ -241,7 +258,7 @@ async def update_product(updated_product: ProductEx) -> None:
     except ResourceNotFoundError:
         raise Exception("Product not found")
 
-
+# Function to get categories
 async def get_categories() -> Dict[str, Category]:
     """
     Asynchronously fetches categories from the database.
@@ -251,7 +268,7 @@ async def get_categories() -> Dict[str, Category]:
     """
     return await load_reference_data(Settings.TABLE_NAME["CATEGORY"])
 
-
+# Function to get suppliers
 async def get_suppliers() -> Dict[str, Supplier]:
     """
     Asynchronously fetches suppliers from the database.
@@ -261,9 +278,8 @@ async def get_suppliers() -> Dict[str, Supplier]:
     """
     return await load_reference_data(Settings.TABLE_NAME["SUPPLIER"])
 
-
-
-async def create_product(self,create_product: Product) -> str:
+# Function to create a new product
+async def create_product(self, create_product: Product) -> str:
     # Instantiate the database service with caching disabled
     db_service = DbService(ok_to_cache_locally=False)
     
@@ -290,7 +306,7 @@ async def create_product(self,create_product: Product) -> str:
     }
 
     # Use the `create_entity` method to add the entity to the database
-    await db_service.create_entity(Settings.TABLE_NAME["PRODUCT"],new_product["ProductID"],new_product)
+    await db_service.create_entity(Settings.TABLE_NAME["PRODUCT"], new_product["ProductID"], new_product)
     
     # Return the new product ID
     return new_product["ProductID"]

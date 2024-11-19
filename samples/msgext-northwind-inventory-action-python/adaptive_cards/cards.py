@@ -4,7 +4,6 @@
 from botbuilder.core import CardFactory
 from botbuilder.schema import Attachment
 
-
 def edit_card(query):
     return {
         "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",

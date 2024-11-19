@@ -3,6 +3,7 @@ from datetime import datetime
 import json
 from config import Settings
 
+# Class representing a database entity
 class DbEntity:
     def __init__(self, etag, partition_key, row_key, timestamp):
         self.etag = etag
@@ -10,7 +11,7 @@ class DbEntity:
         self.row_key = row_key
         self.timestamp = timestamp
 
-
+# Service class for interacting with the database
 class DbService:
     def __init__(self, ok_to_cache_locally: bool):
         if not Settings.STORAGE_ACCOUNT_CONNECTION_STRING:
@@ -18,6 +19,7 @@ class DbService:
         self.ok_to_cache_locally = ok_to_cache_locally
         self.entity_cache = []
 
+    # Method to get an entity by its row key
     async def get_entity_by_row_key(self, table_name: str, row_key: str):
         if not self.ok_to_cache_locally:
             table_client = TableClient.from_connection_string(
@@ -35,33 +37,34 @@ class DbService:
                 return None
             return filtered_entities[0]
 
-
+    # Method to get all entities from a table
     async def get_entities(self, table_name: str):
         try:
             if self.ok_to_cache_locally and self.entity_cache:
                 return self.entity_cache
             else:
                 table_client = TableClient.from_connection_string(
-                Settings.STORAGE_ACCOUNT_CONNECTION_STRING, table_name
-            )
-            entities = table_client.list_entities()
-            self.entity_cache = [
-                self.expand_property_values(entity) for entity in entities
-            ]
-            return self.entity_cache
+                    Settings.STORAGE_ACCOUNT_CONNECTION_STRING, table_name
+                )
+                entities = table_client.list_entities()
+                self.entity_cache = [
+                    self.expand_property_values(entity) for entity in entities
+                ]
+                return self.entity_cache
         except Exception as e:
             print(f"Error fetching entities from table '{table_name}': {e}")
 
-
+    # Method to create a new entity in the table
     async def create_entity(self, table_name: str, row_key: str, new_entity):
         entity = self.compress_property_values(new_entity)
         table_client = TableClient.from_connection_string(
-        Settings.STORAGE_ACCOUNT_CONNECTION_STRING, table_name
-    )
+            Settings.STORAGE_ACCOUNT_CONNECTION_STRING, table_name
+        )
         table_client.create_entity(
-        entity={"PartitionKey": table_name, "RowKey": row_key, **entity}
-    )
+            entity={"PartitionKey": table_name, "RowKey": row_key, **entity}
+        )
 
+    # Method to update an existing entity in the table
     async def update_entity(self, table_name: str, updated_entity):
         entity = self.compress_property_values(updated_entity)
         table_client = TableClient.from_connection_string(
@@ -69,6 +72,7 @@ class DbService:
         )
         await table_client.update_entity(entity=entity, mode="Replace")
 
+    # Method to get the next available ID for a new entity
     async def get_next_id(self, table_name: str) -> int:
         try:
             entities = await self.get_entities(table_name)
@@ -77,12 +81,14 @@ class DbService:
             print("Error fetching entities:", e)
             return -1
 
+    # Method to expand property values of an entity (e.g., JSON strings to objects)
     def expand_property_values(self, entity):
         expanded_entity = {}
         for key, value in entity.items():
             expanded_entity[key] = self.expand_property_value(value)
         return expanded_entity
 
+    # Helper method to expand a single property value
     def expand_property_value(self, value):
         if isinstance(value, str) and (value.startswith("{") or value.startswith("[")):
             try:
@@ -91,12 +97,14 @@ class DbService:
                 return value
         return value
 
+    # Method to compress property values of an entity (e.g., objects to JSON strings)
     def compress_property_values(self, entity):
         compressed_entity = {}
         for key, value in entity.items():
             compressed_entity[key] = self.compress_property_value(value)
         return compressed_entity
 
+    # Helper method to compress a single property value
     def compress_property_value(self, value):
         if isinstance(value, (dict, list)):
             return json.dumps(value)

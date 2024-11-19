@@ -23,6 +23,7 @@ class SearchBot(TeamsActivityHandler):
     def __init__(self):
         super().__init__()
 
+    # Handle messaging extension query
     async def on_teams_messaging_extension_query(
         self, context: TurnContext, query: MessagingExtensionQuery
     ):
@@ -39,6 +40,7 @@ class SearchBot(TeamsActivityHandler):
         response = await self.handle_teams_messaging_extension_query(context, query)
         return response
 
+    # Handle different commands for messaging extension query
     async def handle_teams_messaging_extension_query(
         self, context: TurnContext, query: MessagingExtensionQuery
     ) -> MessagingExtensionResponse:
@@ -61,6 +63,7 @@ class SearchBot(TeamsActivityHandler):
                 compose_extension={"type": "message", "text": "Unknown command"}
             )
 
+    # Handle adaptive card invoke actions
     async def on_adaptive_card_invoke(
         self, context: TurnContext, value
     ) -> InvokeResponse:
@@ -88,6 +91,7 @@ class SearchBot(TeamsActivityHandler):
             print(f"Exception occurred: {e}")
             return utils.create_action_error_response(500, 0, str(e))
 
+    # Handle item selection in messaging extension
     async def on_teams_messaging_extension_select_item(
         self, turn_context: TurnContext, query
     ) -> MessagingExtensionResponse:
@@ -102,6 +106,7 @@ class SearchBot(TeamsActivityHandler):
             )
         )
 
+    # Handle fetch task action in messaging extension
     async def on_teams_messaging_extension_fetch_task(
         self, turn_context: TurnContext, action: MessagingExtensionAction
     ) -> MessagingExtensionActionResponse:
@@ -116,6 +121,7 @@ class SearchBot(TeamsActivityHandler):
         else:
             return None
 
+    # Handle submit action in messaging extension
     async def on_teams_messaging_extension_submit_action(
         self, turn_context: TurnContext, action: MessagingExtensionAction
     ) -> MessagingExtensionResponse:

@@ -20,9 +20,11 @@ from northwindDB.model import Supplier
 from config import Settings
 import urllib.parse
 
+# Load configuration settings
 CONFIG = Settings()
 COMMAND_ID = "addSupplier"
 
+# Function to handle the fetch task for the messaging extension
 async def on_teams_messaging_extension_fetch_task(
     self, context: TurnContext, action: MessagingExtensionAction
 ) -> MessagingExtensionActionResponse:
@@ -32,7 +34,6 @@ async def on_teams_messaging_extension_fetch_task(
             initial_parameters = {}
             print("Action Data:", action.data)
             print("Task Parameters:", action.data.get("taskParameters"))
-
 
             # Check if action has task parameters and assign them to initial_parameters
             if action.data and action.data.get("taskParameters"):
@@ -65,15 +66,17 @@ async def on_teams_messaging_extension_fetch_task(
         # Handle outer errors
         print(f"Error in handle_teams_messaging_extension_fetch_task: {str(e)}")
 
-
+# Function to handle the submit action for the messaging extension
 async def on_teams_messaging_extension_submit_action(
     self, context: TurnContext, action: MessagingExtensionAction
 ) -> MessagingExtensionActionResponse:
 
     if action.command_id == "addSupplier":
+        # Extract initial parameters from the action data
         initial_parameters = (
             action.data.get("taskParameters", {}) if action.data else action.data
         )
+        # Create a new Supplier object with the provided data
         supplier = Supplier(
             etag="",
             partition_key="",
@@ -92,7 +95,8 @@ async def on_teams_messaging_extension_submit_action(
             fax="",
             home_page="",
         )
-        await create_supplier(self,supplier)
+        # Save the new supplier to the database
+        await create_supplier(self, supplier)
 
     # Create the Hero Card object
     hero_card = HeroCard(
@@ -104,16 +108,17 @@ async def on_teams_messaging_extension_submit_action(
 
     # Define the attachment with the Hero Card content
     attachment = MessagingExtensionAttachment(
-    content_type=hero_card_attachment.content_type,
-    content=hero_card_attachment.content,
-    preview=hero_card_attachment
-)
-
-    return MessagingExtensionResponse(
-    compose_extension=MessagingExtensionResult(
-        type="result",
-        attachment_layout="list",
-        attachments=[attachment]
+        content_type=hero_card_attachment.content_type,
+        content=hero_card_attachment.content,
+        preview=hero_card_attachment
     )
-)
+
+    # Return the response with the Hero Card attachment
+    return MessagingExtensionResponse(
+        compose_extension=MessagingExtensionResult(
+            type="result",
+            attachment_layout="list",
+            attachments=[attachment]
+        )
+    )
 

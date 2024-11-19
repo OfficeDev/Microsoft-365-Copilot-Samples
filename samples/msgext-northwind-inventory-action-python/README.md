@@ -8,7 +8,7 @@ languages:
 - python
 ---
 
-# Northwind inventory message extension sample
+# Northwind Inventory Message Extension Sample
 
 ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 

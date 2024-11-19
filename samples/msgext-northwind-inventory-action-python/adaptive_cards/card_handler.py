@@ -12,6 +12,7 @@ from adaptive_cards.utils import (
 )
 from adaptive_cards import cards
 
+# Handle the action to update stock
 async def handle_teams_card_action_update_stock(context: TurnContext):
     request = context.activity.value
     data = request["action"]["data"]
@@ -27,6 +28,7 @@ async def handle_teams_card_action_update_stock(context: TurnContext):
     else:
         return create_action_error_response(400, 0, "Invalid request")
 
+# Handle the action to cancel restock
 async def handle_teams_card_action_cancel_restock(context: TurnContext):
     request = context.activity.value
     data = request["action"]["data"]
@@ -42,6 +44,7 @@ async def handle_teams_card_action_cancel_restock(context: TurnContext):
     else:
         return create_action_error_response(400, 0, "Invalid request")
 
+# Handle the action to restock
 async def handle_teams_card_action_restock(context: TurnContext):
     request = context.activity.value
     data = request["action"]["data"]
@@ -57,6 +60,7 @@ async def handle_teams_card_action_restock(context: TurnContext):
     else:
         return create_action_error_response(400, 0, "Invalid request")
 
+# Handle the action to edit product
 async def handle_teams_card_action_edit_product(context: TurnContext):
     request = context.activity.value
     data = request["action"]["data"]
@@ -87,6 +91,7 @@ async def handle_teams_card_action_edit_product(context: TurnContext):
     else:
         return create_action_error_response(400, 0, "Invalid request")
 
+# Handle the action to save product
 async def handle_teams_card_action_save_product(context: TurnContext):
     request = context.activity.value
     data = request["action"]["data"]
