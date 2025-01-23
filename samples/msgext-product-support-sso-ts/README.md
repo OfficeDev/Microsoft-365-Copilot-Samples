@@ -1,6 +1,6 @@
 ---
 page_type: sample
-description: This sample demonstrates how to use build a plugin for Microsoft Copilot for Microsoft 365 using TypeScript and Teams Toolkit for Visual Studio Code that returns data from SharePoint Online via Microsoft Graph.
+description: This sample demonstrates how to use build a plugin for Microsoft 365 Copilot using TypeScript and Teams Toolkit for Visual Studio Code that returns data from SharePoint Online via Microsoft Graph.
 products:
 - office-teams
 - copilot-m365
@@ -9,9 +9,9 @@ languages:
 ---
 # Overview Contoso Products message extension sample - TS
 
-This sample implements a Teams message extension that can be used as a plugin for Copilot for Microsoft 365. The message extension allows users to query items in the Products list in the Product support SharePoint Online team site via Microsoft Graph.
+This sample implements a Teams message extension that can be used as a plugin for Microsoft 365 Copilot. The message extension allows users to query items in the Products list in the Product support SharePoint Online team site via Microsoft Graph.
 
-> 💡 This is the TypeScript version of the [Product support message extension sample](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-product-support-sso-csharp) written in .NET and C#
+> 💡 This is the TypeScript version of the [Product support message extension sample](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-product-support-sso-csharp) written in .NET and C#
 
 ## Get started with the template
 
@@ -25,7 +25,7 @@ This sample implements a Teams message extension that can be used as a plugin fo
 > - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher
 > - Azure subscription
 > - [PnP PowerShell](https://pnp.github.io/powershell)
-> - You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft Copilot for Microsoft 365 license to use the extension in Copilot.
+> - You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft 365 Copilot license to use the extension in Copilot.
 
 ## Minimal path to awesome
 

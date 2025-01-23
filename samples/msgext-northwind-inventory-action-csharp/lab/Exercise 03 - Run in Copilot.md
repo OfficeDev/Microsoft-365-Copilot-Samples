@@ -1,4 +1,4 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 TABLE OF CONTENTS
 
@@ -10,16 +10,16 @@ TABLE OF CONTENTS
 
 ## Exercise 3 
 
-## Step 1 - Test in Microsoft Copilot for Microsoft 365 (single parameter)
+## Step 1 - Test in Microsoft 365 Copilot (single parameter)
 
 Begin by clicking the "Try the new Teams" switch to move to the new Teams client application.
 
 > [!IMPORTANT]
-> Microsoft Copilot for Microsoft 365 only works in the "New" Teams. Please don't miss this step! 
+> Microsoft 365 Copilot only works in the "New" Teams. Please don't miss this step! 
 
 > If you restart your debugger after switching to "New" teams, you may get an error message after the debugger starts. This is a known problem; please just close the error dialog and continue testing.
 
-In the left navigation, click on "M365 Chat" to open Copilot.
+In the left navigation, click on "Copilot" to open Copilot.
 
 Check the lower left of the chat user interface, below the compose box. You should see a plugin icon 1️⃣ . Click this and enable the Northwind Inventory plugin 2️⃣ .
 
@@ -53,7 +53,7 @@ Try using these adaptive cards to take action on the products. Notice that this 
 
 Feel free to try making up your own prompts. You'll find that they only work if Copilot is able to query the plugin for the required information. This underscores the need to anticipate the kinds of prompts users will issue, and providing corresponding types of queries for each one. Having multiple parameters will make this more powerful!
 
-## Step 2 - Test in Microsoft Copilot for Microsoft 365 (multiple parameters)
+## Step 2 - Test in Microsoft 365 Copilot (multiple parameters)
 
 In this exercise, you'll try some prompts that exercise the multi-parameter feature in the sample plugin. These prompts will request data that can be retrieved by name, category, inventory status, supplier city, and stock level, as defined in [the manifest](../appPackage/manifest.json).
 

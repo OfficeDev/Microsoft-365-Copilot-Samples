@@ -1,6 +1,6 @@
 ---
 page_type: sample
-description: This sample implements a Teams message extension that can be used as a plugin for Microsoft Copilot for Microsoft 365. The message extension enables users to query the Products list in the Product support SharePoint Online team site via Microsoft Graph.
+description: This sample implements a Teams message extension that can be used as a plugin for Microsoft 365 Copilot. The message extension enables users to query the Products list in the Product support SharePoint Online team site via Microsoft Graph.
 products:
 - office-teams
 - copilot-m365
@@ -12,7 +12,7 @@ languages:
 
 ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
-This sample implements a Microsoft Teams message extension that can be used as a plugin for Microsoft Copilot for Microsoft 365. The message extension allows users to query items in the Products list in the [Product support](https://lookbook.microsoft.com/details/81e2fee3-02a0-427b-af8b-8c7f42010fde) SharePoint Online team site via Microsoft Graph. Whilst this sample uses Microsoft Graph, the approach used in this sample can be used to call any API that uses OAuth 2.0 authentication.
+This sample implements a Microsoft Teams message extension that can be used as a plugin for Microsoft 365 Copilot. The message extension allows users to query items in the Products list in the [Product support](https://lookbook.microsoft.com/details/81e2fee3-02a0-427b-af8b-8c7f42010fde) SharePoint Online team site via Microsoft Graph. Whilst this sample uses Microsoft Graph, the approach used in this sample can be used to call any API that uses OAuth 2.0 authentication.
 
 ![Screenshot of the sample extension working in Copilot in Microsoft Teams](./assets/product-card.png)
 
@@ -22,7 +22,7 @@ This sample implements a Microsoft Teams message extension that can be used as a
 - [Teams Toolkit](https://learn.microsoft.com/microsoftteams/platform/toolkit/toolkit-v4/install-teams-toolkit-vs?pivots=visual-studio-v17-7)
 - Azure subscription
 - [PnP PowerShell](https://pnp.github.io/powershell)
-- You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft Copilot for Microsoft 365 license to use the extension in Copilot.
+- You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft 365 Copilot license to use the extension in Copilot.
 
 ## Minimal path to awesome
 
@@ -57,7 +57,7 @@ This sample implements a Microsoft Teams message extension that can be used as a
 
 ### 3. Test in Copilot
 
-- In Microsoft Teams, open the M365 Chat app
+- In Microsoft Teams, open the Copilot app
 - Open the prompts flyout and enable `Product support` plugin
 - Enter `Find Contoso products aimed at individuals` in the message box and press <kbd>Enter</kbd>
 - Copilot will respond with a message saying that it cannot find any information about a Contoso products aimed at individuals in the enterprise search results

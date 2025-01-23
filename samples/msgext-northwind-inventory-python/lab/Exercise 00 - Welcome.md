@@ -1,14 +1,14 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 ## Lab Instructions
 
-In this lab, you'll learn to use Teams Message Extensions as plugins in Microsoft Copilot for Microsoft 365. The lab is based on the "Northwind Inventory" sample contained in this same [Github repository](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-northwind-inventory-python). By using the venerable [Northwind Database](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases), you'll have plenty of simulated enterprise data to work with.
+In this lab, you'll learn to use Teams Message Extensions as plugins in Microsoft 365 Copilot. The lab is based on the "Northwind Inventory" sample contained in this same [Github repository](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-northwind-inventory-python). By using the venerable [Northwind Database](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases), you'll have plenty of simulated enterprise data to work with.
 
 Northwind operates a specialty foods e-commerce business out of Walla Walla, Washington. In this lab, you will be working with the Northwind Inventory application, which provides access to product inventory and financial information.
 
 In **Exercise 1**, you'll set up your development environment and get the application running.
 
-Then, in **Exercise 2**, you'll run the application as a plugin for Copilot for Microsoft 365. You will experiment with various prompts and you will observe how the plugin gets invoked using different parameters. As you chat with Copilot, you can watch the developer console to see queries it's making.
+Then, in **Exercise 2**, you'll run the application as a plugin for Microsoft 365 Copilot. You will experiment with various prompts and you will observe how the plugin gets invoked using different parameters. As you chat with Copilot, you can watch the developer console to see queries it's making.
 
 In **Exercise 3**, you will learn how to add a new command to the application, so that you can expand the plugin capabilities and perform more tasks.
 

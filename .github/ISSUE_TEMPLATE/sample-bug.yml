@@ -6,7 +6,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Before you raise an issue, please ensure that you meet all the [requirements](https://learn.microsoft.com/microsoft-365-copilot/extensibility/prerequisites) for Microsoft Copilot for Microsoft 365 extensibilty**
+        **Before you raise an issue, please ensure that you meet all the [requirements](https://learn.microsoft.com/microsoft-365-copilot/extensibility/prerequisites) for Microsoft 365 Copilot extensibilty**
   - type: dropdown
     id: sample
     attributes:

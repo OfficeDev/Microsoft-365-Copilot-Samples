@@ -4,6 +4,6 @@
 version: v1.2
 
 additionalMetadata:
-  sampleTag: Copilot-for-M365-Samples:msgext-northwind-inventory-python
+  sampleTag: Microsoft-365-Copilot-Samples:msgext-northwind-inventory-python
 
 environmentFolderPath: ./env
