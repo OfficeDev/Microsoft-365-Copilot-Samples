@@ -1,4 +1,4 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 TABLE OF CONTENTS
 
@@ -12,7 +12,7 @@ TABLE OF CONTENTS
 
 ## Step 1 - Install prerequisites
 
-**To complete these labs, you will need a login to a Microsoft 365 subscription with permission to upload applications. To complete Lab 3, this account must also be licensed for Microsoft Copilot for Microsoft 365.**
+**To complete these labs, you will need a login to a Microsoft 365 subscription with permission to upload applications. To complete Lab 3, this account must also be licensed for Microsoft 365 Copilot.**
 
 If this is a new tenant, it's a good idea to log into the [Microsoft 365 page](https://office.com) at [https://office.com](https://office.com) before beginning. Depending on how the tenant is configured, you may be asked to set up multi-factor authentication. Ensure you can access Microsoft Teams and Microsoft Outlook before proceeding.
 
@@ -33,9 +33,9 @@ Please install the following on your computer:
 
 ## Step 2 - Download the sample code
 
-If you're in a lab at Microsoft Ignite 2023, please download the sample code from [here](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/archive/refs/heads/main.zip). Unzip the files to a location on your computer.
+If you're in a lab at Microsoft Ignite 2023, please download the sample code from [here](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/archive/refs/heads/main.zip). Unzip the files to a location on your computer.
 
-Otherwise please [clone](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples.git) or [download](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples.git) the sample repository:  [https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/).
+Otherwise please [clone](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples.git) or [download](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples.git) the sample repository:  [https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/).
 
 Within the cloned or downloaded repository, navigate to the **samples/msgext-northwind-inventory-ts** folder. These labs will refer to this as your "working folder" since this is where you'll be working.
 

@@ -1,8 +1,8 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 ## Lab Instructions
 
-In this lab, you'll learn to use Teams Message Extensions as plugins in Microsoft Copilot for Microsoft 365. The lab is based on the "Northwind Inventory" sample contained in this same [Github repository](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/tree/main/samples/msgext-northwind-inventory-ts). By using the venerable [Northwind Database](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases), you'll have plenty of simulated enterprise data to work with.
+In this lab, you'll learn to use Teams Message Extensions as plugins in Microsoft 365 Copilot. The lab is based on the "Northwind Inventory" sample contained in this same [Github repository](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/msgext-northwind-inventory-ts). By using the venerable [Northwind Database](https://learn.microsoft.com/dotnet/framework/data/adonet/sql/linq/downloading-sample-databases), you'll have plenty of simulated enterprise data to work with.
 
 Northwind operates a specialty foods e-commerce business out of Walla Walla, Washington. In this lab, you will be working with the Northwind Inventory application, which provides access to product inventory and financial information.
 
@@ -13,7 +13,7 @@ The message extension allows users to find products and share them in conversati
 
 ![Adaptive card displaying a product](./images/01-00-Product-card-only.png)
 
-In Exercise 3 you'll run the same application in Microsoft Copilot for Microsoft 365. As you chat with Copilot, you can watch the developer console to see queries it's making.
+In Exercise 3 you'll run the same application in Microsoft 365 Copilot. As you chat with Copilot, you can watch the developer console to see queries it's making.
 
 Finally, in Exercise 4 you'll go on a tour of the code to see how it works in more depth. This lab is open source, so you can try it at home! If you don't yet have Copilot, everything else will still work.
 

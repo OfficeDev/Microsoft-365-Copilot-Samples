@@ -48,7 +48,7 @@ Microsoft does not provide a supported library for validating Entra ID tokens in
 
 ### Prerequisites
 
-* Administrator permission in a Microsoft 365 tenant with Copilot for Microsoft 365
+* Administrator permission in a Microsoft 365 tenant with Microsoft 365 Copilot
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [NodeJS 18.x](https://nodejs.org/en/download)
 * [Teams Toolkit extension for VS Code](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)

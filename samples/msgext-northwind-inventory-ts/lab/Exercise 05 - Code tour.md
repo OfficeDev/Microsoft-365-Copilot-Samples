@@ -1,4 +1,4 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 TABLE OF CONTENTS
 
@@ -17,7 +17,7 @@ In this exercise, you'll review the application code so that you can understand 
 
 The core of any Microsoft 365 application is its application manifest. This is where you provide the information Microsoft 365 needs to access your application.
 
-In your working directory, open the [manifest.json](https://github.com/OfficeDev/Copilot-for-M365-Plugins-Samples/blob/main/samples/msgext-northwind-inventory-ts/appPackage/manifest.json) file. This JSON file is placed in a zip archive with two icon files to create the application package. The "icons" property includes paths to these icons.
+In your working directory, open the [manifest.json](https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/blob/main/samples/msgext-northwind-inventory-ts/appPackage/manifest.json) file. This JSON file is placed in a zip archive with two icon files to create the application package. The "icons" property includes paths to these icons.
 
 ~~~json
 "icons": {
@@ -367,4 +367,4 @@ As you can see, the code obtains these two values, updates the database, and the
 
 ## Congratulations
 
-You have completed Exercise 5 and the Copilot for Microsoft 365 Message Extensions plugin lab. Thanks very much for doing these labs!
+You have completed Exercise 5 and the Microsoft 365 Copilot Message Extensions plugin lab. Thanks very much for doing these labs!

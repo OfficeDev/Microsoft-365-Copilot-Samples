@@ -1,7 +1,7 @@
 {
     "name": "officedev-copilot-for-m365-plugins-samples-msgext-northwind-inventory-python",
     "version": "1.0.0",
-    "description": "This sample implements a Teams message extension that can be used as a plugin for Microsoft Copilot for Microsoft 365.",
+    "description": "This sample implements a Teams message extension that can be used as a plugin for Microsoft 365 Copilot.",
     "scripts": {
       "storage": "azurite --silent --location ./_storage_emulator --debug ./_storage_emulator/debug.log"
     },
