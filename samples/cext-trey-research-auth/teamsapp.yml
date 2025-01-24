@@ -97,7 +97,7 @@ provision:
       clientId: ${{AAD_APP_CLIENT_ID}}
       clientSecret: ${{SECRET_AAD_APP_CLIENT_SECRET}}
       # Path to OpenAPI description document
-      apiSpecPath: ./appPackage/apiSpecificationFile/repair.yml
+      apiSpecPath: ./appPackage/trey-definition.yml
     writeToEnvironmentFile:
       configurationId: OAUTH2AUTHCODE_CONFIGURATION_ID
       

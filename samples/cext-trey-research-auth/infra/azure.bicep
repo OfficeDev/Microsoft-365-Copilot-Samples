@@ -2,7 +2,6 @@
 @minLength(4)
 param resourceBaseName string
 param functionAppSKU string
-param functionStorageSKU string
 param aadAppClientId string
 param aadAppTenantId string
 param aadAppOauthAuthorityHost string
@@ -10,16 +9,6 @@ param location string = resourceGroup().location
 param serverfarmsName string = resourceBaseName
 param functionAppName string = resourceBaseName
 param functionStorageName string = '${resourceBaseName}api'
-
-// Azure Storage is required when creating Azure Functions instance
-resource functionStorage 'Microsoft.Storage/storageAccounts@2021-06-01' = {
-  name: functionStorageName
-  kind: 'StorageV2'
-  location: location
-  sku: {
-    name: functionStorageSKU// You can follow https://aka.ms/teamsfx-bicep-add-param-tutorial to add functionStorageSKUproperty to provisionParameters to override the default value "Standard_LRS".
-  }
-}
 
 // Storage account for database table storage
 resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
