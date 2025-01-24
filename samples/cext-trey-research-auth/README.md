@@ -4,7 +4,7 @@ Trey Research is a fictitious consulting company that supplies talent in the sof
 
 > NOTE: Declarative agents were called "declarative copilots" during private preview; you may find the old terminology in some of our documentation and tools as they are being updated.
 
-> NOTE: This version of the Trey Research sample uses OAuth authentication and has been tested using Entra ID as the identity service. See the Setup section below for details on configuring the necessary apps in Entra ID.
+> NOTE: This version of the Trey Research sample uses OAuth authentication and has been tested using Entra ID as the identity service. Teams Toolkit will provision the Entra ID registration and [configure it in the Teams Developer Portal](https://dev.teams.microsoft.com/oauth-configuration) for your convenience.
 
 ### Prompts that work
 
@@ -42,7 +42,9 @@ The sample showcases the following features:
 
 ## Note on validating OAuth tokens
 
-Microsoft does not provide a supported library for validating Entra ID tokens in NodeJS, but instead provides this detailed documentation{target=_blank} on how to write your own. Another useful article{target=_blank} is also available from Microsoft MVP Andrew Connell{target=_blank}. This lab uses a community provided library{target=_blank} written by Waldek Mastykarz{target=_blank}, which is intended to follow this guidance. Note that this library is not supported by Microsoft and is under an MIT License, so use it at your own risk.
+Microsoft does not provide a supported library for validating Entra ID tokens in NodeJS, but instead provides this detailed documentation{target=_blank} on how to write your own. Another useful article{target=_blank} is also available from Microsoft MVP Andrew Connell{target=_blank}. 
+
+This lab includes sample code to do this validation, which is intended to follow this guidance. Note that this code is not supported by Microsoft and is under an MIT License, so use it at your own risk.
 
 ## Setup
 
@@ -51,34 +53,19 @@ Microsoft does not provide a supported library for validating Entra ID tokens in
 * Administrator permission in a Microsoft 365 tenant with Microsoft 365 Copilot
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [NodeJS 18.x](https://nodejs.org/en/download)
-* [Teams Toolkit extension for VS Code](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
-  NOTE: If you want to build new projects of this nature, you'll need Teams Toolkit v5.6.1-alpha.039039fab.0 or newer
-* [Teams Toolkit CLI](https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
+* [Teams Toolkit extension for VS Code](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension) version v5.12.1 or newer
+* (optional)[Teams Toolkit CLI](https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
   (`npm install -g @microsoft/teamsapp-cli`)
 * (optional) [Postman](https://www.postman.com/downloads/)
 
 ## Setup instructions
 
-### Register your Entra ID applications
-
-You will need to set up 2 applications in Entra ID:
-
-1. API Service app - is used to secure HTTP requests going to your API
-2. API Plugin app - is used to represent the plugin running in Microsoft 365 that will access your API
-
-[Detailed setup instructions are here](./README-Auth.md).
-After following those steps you will have saved a number of values for the app ID's and other details needed below.
+These instructions rely on Teams Toolkit to set up the Entra ID configration. If you want to do that manually, see 
+[these instructions](./README-Auth.md).
 
 ### Setup instructions (one-time setup)
 
 1. Log into Teams Toolkit using your target tenant.
-
-1. Add these lines to your **env/.env.local** file. Create a new file if there isn't already one present, and fill in the values you stored during app registration.
-
-~~~text
-API_APPLICATION_ID=<your-api-service-client-id>
-API_TENANT_ID=<your-tenant-id>
-~~~
 
 1. If your project doesn't yet have a file **env/.env.local.user**, then create one by copying **env/.env.local.user.sample**. If you do have such a file, ensure it includes these lines.
 
@@ -86,27 +73,9 @@ API_TENANT_ID=<your-tenant-id>
 SECRET_STORAGE_ACCOUNT_CONNECTION_STRING=UseDevelopmentStorage=true
 ~~~
 
-1. Update the Plugin file: Open the **appPackage/trey-plugin.json** file and find the line:
-
-~~~json
-"reference_id":  "<your oauth plugin vault reference id>"
-~~~
-
-Fill in your OAuth plugin vault reference ID from when you registered the app in Teams Developer portal.
-
-1. Update the Open API Definition file
-
-Since you will be using a persistent developer tunnel for your API, find this line in the **appPackage/trey-definition.json** and put your tunnel URL in place of the token `${{OPENAPI_SERVER_URL}}`:
-
-~~~json
-    "url": "${{OPENAPI_SERVER_URL}}/api/",
-~~~
-
 1. OPTIONAL: Copy the files from the **/sampleDocs** folder to OneDrive or SharePoint. Add the location of these files in the `OneDriveAndSharePoint` capability in the declarative copilot (**/appPackage/trey-declarative-copilot.json**).
 
 ### Running the solution (after each build)
-
-1. Ensure your persistent developer tunnel is running
 
 1. Press F5 to start the application. It will take a while on first run to download the dependencies. Eventually a browser window will open up and your package is installed.
 
@@ -129,7 +98,7 @@ Or simply replace part of the URL `http://localhost:7071` with your tunnel/host 
 
 ~~~javascript
 
- GET /api/me/ - get my consulting profile and projects
+GET /api/me/ - get my consulting profile and projects
 
 GET /api/consultants/ - get all consultants
 // Query string params can be used in any combination to filter results
