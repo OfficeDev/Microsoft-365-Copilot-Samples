@@ -4,7 +4,8 @@ import { Consultant } from '../model/baseModel';
 import { ApiConsultant } from '../model/apiModel';
 
 // This is a DEMO ONLY identity solution.
-import { TokenValidator, ValidateTokenOptions, getEntraJwksUri } from 'jwt-validate';
+import { TokenValidator, ValidateTokenOptions } from "../functions/middleware/tokenValidator";
+import { getEntraJwksUri } from "../functions/middleware/utils";
 import ConsultantApiService from "./ConsultantApiService";
 
 class Identity {
@@ -42,8 +43,8 @@ class Identity {
 
             // Use these options for single-tenant applications
             const options: ValidateTokenOptions = {
-                audience: `api://${AAD_APP_CLIENT_ID}`,
-                issuer: `https://sts.windows.net/${AAD_APP_TENANT_ID}/`,
+                audience: `${AAD_APP_CLIENT_ID}`,
+                issuer: `https://login.microsoftonline.com/${AAD_APP_TENANT_ID}/v2.0`,
                 // NOTE: If this is a multi-tenant app, look for 
                 // issuer: "https://sts.windows.net/common/",
                 // Also you may wish to manage a list of allowed tenants

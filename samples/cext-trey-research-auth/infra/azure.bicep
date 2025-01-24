@@ -3,7 +3,9 @@
 param resourceBaseName string
 param functionAppSKU string
 param functionStorageSKU string
-
+param aadAppClientId string
+param aadAppTenantId string
+param aadAppOauthAuthorityHost string
 param location string = resourceGroup().location
 param serverfarmsName string = resourceBaseName
 param functionAppName string = resourceBaseName
@@ -51,24 +53,12 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
     siteConfig: {
       appSettings: [
         {
-          name: ' AzureWebJobsDashboard'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${functionStorage.name};AccountKey=${listKeys(functionStorage.id, functionStorage.apiVersion).keys[0].value};EndpointSuffix=${environment().suffixes.storage}' // Azure Functions internal setting
-        }
-        {
-          name: 'AzureWebJobsStorage'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${functionStorage.name};AccountKey=${listKeys(functionStorage.id, functionStorage.apiVersion).keys[0].value};EndpointSuffix=${environment().suffixes.storage}' // Azure Functions internal setting
-        }
-        {
           name: 'FUNCTIONS_EXTENSION_VERSION'
           value: '~4' // Use Azure Functions runtime v4
         }
         {
           name: 'FUNCTIONS_WORKER_RUNTIME'
           value: 'node' // Set runtime to NodeJS
-        }
-        {
-          name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
-          value: 'DefaultEndpointsProtocol=https;AccountName=${functionStorage.name};AccountKey=${listKeys(functionStorage.id, functionStorage.apiVersion).keys[0].value};EndpointSuffix=${environment().suffixes.storage}' // Azure Functions internal setting
         }
         {
           name: 'WEBSITE_RUN_FROM_PACKAGE'
@@ -82,16 +72,53 @@ resource functionApp 'Microsoft.Web/sites@2021-02-01' = {
           name: 'STORAGE_ACCOUNT_CONNECTION_STRING'
           value: storageAccountConnectionString
         }
+        {
+          name: 'aadAppClientId'
+          value: aadAppClientId
+        }
+        {
+          name: 'aadAppTenantId'
+          value: aadAppTenantId
+        }
       ]
       ftpsState: 'FtpsOnly'
     }
   }
 }
 var apiEndpoint = 'https://${functionApp.properties.defaultHostName}'
+var oauthAuthority = uri(aadAppOauthAuthorityHost, aadAppTenantId)
+var aadApplicationIdUri = 'api://${aadAppClientId}'
 
+// Configure Azure Functions to use Azure AD for authentication.
+resource authSettings 'Microsoft.Web/sites/config@2021-02-01' = {
+  parent: functionApp
+  name: 'authsettingsV2'
+  properties: {
+    globalValidation: {
+      requireAuthentication: true
+      unauthenticatedClientAction: 'Return401'
+    }
+    identityProviders: {
+      azureActiveDirectory: {
+        enabled: true
+        registration: {
+          openIdIssuer: oauthAuthority
+          clientId: aadAppClientId
+        }
+        validation: {
+          allowedAudiences: [
+            aadAppClientId
+            aadApplicationIdUri
+          ]
+        }
+      }
+    }
+  }
+}
 
 // The output will be persisted in .env.{envName}. Visit https://aka.ms/teamsfx-actions/arm-deploy for more details.
 output API_FUNCTION_ENDPOINT string = apiEndpoint
 output API_FUNCTION_RESOURCE_ID string = functionApp.id
 output OPENAPI_SERVER_URL string = apiEndpoint
+output OPENAPI_SERVER_DOMAIN string = functionApp.properties.defaultHostName
 output SECRET_STORAGE_ACCOUNT_CONNECTION_STRING string = storageAccountConnectionString

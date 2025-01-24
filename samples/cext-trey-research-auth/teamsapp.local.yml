@@ -4,14 +4,6 @@
 version: v1.7
 
 provision:
-  - uses: file/createOrUpdateJsonFile
-    with:
-      target: ./local.settings.json
-      content:
-        IsEncrypted: false
-        Values:
-          FUNCTIONS_WORKER_RUNTIME: 'node'
-
   # Creates a new Microsoft Entra app to authenticate users if
   # the environment variable that stores clientId is empty
   - uses: aadApp/create
@@ -20,7 +12,7 @@ provision:
       # based on the definition in manifest. If you don't want to change the
       # name, make sure the name in Microsoft Entra manifest is the same with the name
       # defined here.
-      name: repairs-oauth-aad
+      name: trey-oauth-aad
       # If the value is false, the action will not generate client secret for you
       generateClientSecret: true
       # Authenticate users with a Microsoft work or school account in your
@@ -47,15 +39,13 @@ provision:
     # the specified environment variable(s).
     writeToEnvironmentFile:
       teamsAppId: TEAMS_APP_ID
-
-  # Apply the Microsoft Entra manifest to an existing Microsoft Entra app. Will use the object id in
-  # manifest file to determine which Microsoft Entra app to update.
-  - uses: aadApp/update
+  # Set required variables for local launch
+  - uses: script
     with:
-      # Relative path to this file. Environment variables in manifest will
-      # be replaced before apply to Microsoft Entra app
-      manifestPath: ./aad.manifest.json
-      outputFilePath: ./build/aad.manifest.json
+      run:
+        echo "::set-teamsfx-env FUNC_NAME=me";
+        echo "::set-teamsfx-env FUNC_ENDPOINT=http://localhost:7071";
+
 
   - uses: oauth/register
     with:
@@ -73,24 +63,20 @@ provision:
     with:
       name: oAuth2AuthCode
       appId: ${{TEAMS_APP_ID}}
+      clientId: ${{AAD_APP_CLIENT_ID}}
+      # Path to OpenAPI description document
       apiSpecPath: ./appPackage/trey-definition.yml
       configurationId: ${{OAUTH2AUTHCODE_CONFIGURATION_ID}}
 
-  # Set required variables for local launch
-  - uses: script
+  # Apply the Microsoft Entra manifest to an existing Microsoft Entra app. Will use the object id in
+  # manifest file to determine which Microsoft Entra app to update.
+  - uses: aadApp/update
     with:
-      run:
-        echo "::set-teamsfx-env FUNC_NAME=me";
-        echo "::set-teamsfx-env FUNC_ENDPOINT=http://localhost:7071";
+      # Relative path to this file. Environment variables in manifest will
+      # be replaced before apply to Microsoft Entra app
+      manifestPath: ./aad.manifest.json
+      outputFilePath: ./build/aad.manifest.${{TEAMSFX_ENV}}.json
 
-  # Add to copy auth variables to local settings
-  - uses: file/createOrUpdateEnvironmentFile
-    with:
-      target: ./.localConfigs
-      envs:
-        AAD_APP_CLIENT_ID: ${{AAD_APP_CLIENT_ID}}
-        AAD_APP_TENANT_ID: ${{AAD_APP_TENANT_ID}}
-        AAD_APP_OAUTH_AUTHORITY: ${{AAD_APP_OAUTH_AUTHORITY}}
 
   # Build Teams app package with latest env value
   - uses: teamsApp/zipAppPackage
@@ -142,6 +128,15 @@ deploy:
     name: install dependencies
     with:
       args: install --no-audit
+
+  # Generate runtime environment variables
+  - uses: file/createOrUpdateEnvironmentFile
+    with:
+      target: ./.localConfigs
+      envs:
+        aadAppTenantId: ${{AAD_APP_TENANT_ID}}
+        aadAppClientId: ${{AAD_APP_CLIENT_ID}}
+
 
   - uses: script
     name: Ensure database
