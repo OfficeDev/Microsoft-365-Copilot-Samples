@@ -5,7 +5,7 @@
             "name": "Launch App in Teams (Edge)",
             "type": "msedge",
             "request": "launch",
-            "url": "https://teams.microsoft.com?${account-hint}",
+            "url": "https://www.office.com/chat?auth=2",
             "cascadeTerminateToConfigurations": [
                 "Attach to Backend"
             ],
@@ -13,13 +13,14 @@
                 "group": "all",
                 "hidden": true
             },
-            "internalConsoleOptions": "neverOpen"
+            "internalConsoleOptions": "neverOpen",
+            "perScriptSourcemaps": "yes"
         },
         {
             "name": "Launch App in Teams (Chrome)",
             "type": "chrome",
             "request": "launch",
-            "url": "https://teams.microsoft.com?${account-hint}",
+            "url": "https://www.office.com/chat?auth=2",
             "cascadeTerminateToConfigurations": [
                 "Attach to Backend"
             ],
@@ -27,13 +28,14 @@
                 "group": "all",
                 "hidden": true
             },
-            "internalConsoleOptions": "neverOpen"
+            "internalConsoleOptions": "neverOpen",
+            "perScriptSourcemaps": "yes"
         },
         {
             "name": "Preview in Copilot (Edge)",
             "type": "msedge",
             "request": "launch",
-            "url": "https://teams.microsoft.com?${account-hint}",
+            "url": "https://www.office.com/chat?auth=2",
             "presentation": {
                 "group": "remote",
                 "order": 1
@@ -44,7 +46,7 @@
             "name": "Preview in Copilot (Chrome)",
             "type": "chrome",
             "request": "launch",
-            "url": "https://teams.microsoft.com?${account-hint}",
+            "url": "https://www.office.com/chat?auth=2",
             "presentation": {
                 "group": "remote",
                 "order": 2

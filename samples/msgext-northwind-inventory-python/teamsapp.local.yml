@@ -4,7 +4,7 @@
 version: v1.2
 
 additionalMetadata:
-  sampleTag: Copilot-for-M365-Samples:msgext-northwind-inventory-python
+  sampleTag: Microsoft-365-Copilot-Samples:msgext-northwind-inventory-python
 
 provision:
   # Creates a new Azure Active Directory (AAD) app to authenticate users if the environment variable that stores clientId is empty

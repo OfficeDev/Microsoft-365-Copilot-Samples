@@ -1,4 +1,4 @@
-# Building Message Extensions for Microsoft Copilot for Microsoft 365
+# Building Message Extensions for Microsoft 365 Copilot
 
 TABLE OF CONTENTS
 
@@ -262,4 +262,4 @@ The code reads the Products table on each query, but the other tables are only a
 ## Congratulations
 
 You have completed Exercise 2.
-Please proceed to [Exercise 3](./Exercise%2003%20-%20Run%20in%20Copilot.md) in which you will run the sample application in Microsoft Copilot for Microsoft 365!
+Please proceed to [Exercise 3](./Exercise%2003%20-%20Run%20in%20Copilot.md) in which you will run the sample application in Microsoft 365 Copilot!

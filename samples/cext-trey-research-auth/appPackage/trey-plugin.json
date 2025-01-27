@@ -1,6 +1,8 @@
 {
-  "schema_version": "v2.1",
+  "$schema": "https://developer.microsoft.com/json-schemas/copilot/plugin/v2.2/schema.json",
+  "schema_version": "v2.2",
   "name_for_human": "Trey",
+  "description_for_model": "API to get consultant and project information and update project assignments and billed hours",
   "description_for_human": "API to streamline consultant assignment and project management.",
   "namespace": "trey",
   "functions": [
@@ -563,10 +565,11 @@
       "type": "OpenApi",
       "auth": {
         "type": "OAuthPluginVault",
-        "reference_id":  "ODgzYTMwZDQtY2E5MS00Y2JiLWIwMjUtOWMwZjZkNzgyMGEwIyM4OGZmM2M2Ni1lM2MwLTQ5OGQtYTZhMi05MjI0NGVhMjBmOGQ="
+        "reference_id": "${{OAUTH2AUTHCODE_CONFIGURATION_ID}}"
       },
       "spec": {
-        "url": "trey-definition.json"
+        "url": "trey-definition.yml",
+        "progress_style": "ShowUsageWithInputAndOutput"
       },
       "run_for_functions": [
         "getConsultants",
@@ -578,7 +581,6 @@
     }
   ],
   "capabilities": {
-    "localization": {},
     "conversation_starters": [
       {
         "text": "What Trey projects am i assigned to?"

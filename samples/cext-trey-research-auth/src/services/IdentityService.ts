@@ -4,7 +4,8 @@ import { Consultant } from '../model/baseModel';
 import { ApiConsultant } from '../model/apiModel';
 
 // This is a DEMO ONLY identity solution.
-import { TokenValidator, ValidateTokenOptions, getEntraJwksUri } from 'jwt-validate';
+import { TokenValidator, ValidateTokenOptions } from "../functions/middleware/tokenValidator";
+import { getEntraJwksUri } from "../functions/middleware/utils";
 import ConsultantApiService from "./ConsultantApiService";
 
 class Identity {
@@ -21,7 +22,7 @@ class Identity {
 
         // Try to validate the token and get user's basic information
         try {
-            const { API_APPLICATION_ID, API_TENANT_ID } = process.env;
+            const { AAD_APP_CLIENT_ID, AAD_APP_TENANT_ID } = process.env;
             const token = req.headers.get("Authorization")?.split(" ")[1];
             if (!token) {
                 throw new HttpError(401, "Authorization token not found");
@@ -33,7 +34,7 @@ class Identity {
                 // requests so it can cache the Entra ID signing keys
                 // For multitenant, use:
                 // const entraJwksUri = await getEntraJwksUri();
-                const entraJwksUri = await getEntraJwksUri(API_TENANT_ID);
+                const entraJwksUri = await getEntraJwksUri(AAD_APP_TENANT_ID);
                 this.validator = new TokenValidator({
                     jwksUri: entraJwksUri
                 });
@@ -42,8 +43,8 @@ class Identity {
 
             // Use these options for single-tenant applications
             const options: ValidateTokenOptions = {
-                audience: `api://${API_APPLICATION_ID}`,
-                issuer: `https://sts.windows.net/${API_TENANT_ID}/`,
+                audience: `${AAD_APP_CLIENT_ID}`,
+                issuer: `https://login.microsoftonline.com/${AAD_APP_TENANT_ID}/v2.0`,
                 // NOTE: If this is a multi-tenant app, look for 
                 // issuer: "https://sts.windows.net/common/",
                 // Also you may wish to manage a list of allowed tenants

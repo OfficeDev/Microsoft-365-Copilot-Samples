@@ -1,6 +1,6 @@
 ---
 page_type: sample
-description: This sample demonstrates how to use multiple parameters in a plugin for Microsoft Copilot for Microsoft 365 using .NET and Teams Toolkit for Visual Studio.
+description: This sample demonstrates how to use multiple parameters in a plugin for Microsoft 365 Copilot using .NET and Teams Toolkit for Visual Studio.
 products:
 - office-teams
 - copilot-m365
@@ -9,7 +9,7 @@ languages:
 - csharp
 ---
 
-# Using multiple parameters in a plugin for Microsoft Copilot for Microsoft 365 using .NET and Teams Toolkit for Visual Studio sample
+# Using multiple parameters in a plugin for Microsoft 365 Copilot using .NET and Teams Toolkit for Visual Studio sample
 
 ![License.](https://img.shields.io/badge/license-MIT-green.svg)
 
@@ -19,7 +19,7 @@ languages:
 
 - [Visual Studio 2022 17.7+](https://visualstudio.microsoft.com)
 - [Teams Toolkit](https://learn.microsoft.com/microsoftteams/platform/toolkit/toolkit-v4/install-teams-toolkit-vs?pivots=visual-studio-v17-7)
-- You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft Copilot for Microsoft 365 license to use the extension in Copilot.
+- You will need a Microsoft work or school account with [permissions to upload custom Teams applications](https://learn.microsoft.com/microsoftteams/platform/concepts/build-and-test/prepare-your-o365-tenant#enable-custom-teams-apps-and-turn-on-custom-app-uploading). The account will also need a Microsoft 365 Copilot license to use the extension in Copilot.
 
 ## Minimal path to awesome
 
