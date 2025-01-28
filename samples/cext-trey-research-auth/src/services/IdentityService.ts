@@ -61,7 +61,7 @@ class Identity {
 
             userId = validToken.oid;
             userName = validToken.name;
-            userEmail = validToken.upn;
+            userEmail = validToken.preferred_username;
             console.log(`Request ${this.requestNumber++}: Token is valid for user ${userName} (${userId})`);
         }
         catch (ex) {
