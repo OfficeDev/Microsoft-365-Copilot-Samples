@@ -122,6 +122,14 @@ deploy:
     # file for the specified environment variable(s).
     writeToEnvironmentFile:
       funcPath: FUNC_PATH
+  # Generate runtime environment variables
+  - uses: file/createOrUpdateEnvironmentFile
+    with:
+      target: ./.localConfigs
+      envs:
+        STORAGE_ACCOUNT_CONNECTION_STRING: ${{SECRET_STORAGE_ACCOUNT_CONNECTION_STRING}}
+        AAD_APP_TENANT_ID: ${{AAD_APP_TENANT_ID}}
+        AAD_APP_CLIENT_ID: ${{AAD_APP_CLIENT_ID}}
 
   # Run npm command
   - uses: cli/runNpmCommand
@@ -129,15 +137,7 @@ deploy:
     with:
       args: install --no-audit
 
-  # Generate runtime environment variables
-  - uses: file/createOrUpdateEnvironmentFile
-    with:
-      target: ./.localConfigs
-      envs:
-        aadAppTenantId: ${{AAD_APP_TENANT_ID}}
-        aadAppClientId: ${{AAD_APP_CLIENT_ID}}
-
-
+  # Initialize the database if it does not exist
   - uses: script
     name: Ensure database
     with:

@@ -5,11 +5,10 @@ import { ApiConsultant } from '../model/apiModel';
 
 // This is a DEMO ONLY identity solution.
 import { TokenValidator, ValidateTokenOptions } from "../functions/middleware/tokenValidator";
-import { getEntraJwksUri } from "../functions/middleware/utils";
+import { getEntraJwksUri, CloudType } from "../functions/middleware/utils";
 import ConsultantApiService from "./ConsultantApiService";
 
 class Identity {
-    private validator: TokenValidator;
 
     private requestNumber = 1;  // Number the requests for logging purposes
 
@@ -28,33 +27,37 @@ class Identity {
                 throw new HttpError(401, "Authorization token not found");
             }
 
+            // Get the JWKS URL for the Microsoft Entra common tenant
+            const entraJwksUri = await getEntraJwksUri(AAD_APP_TENANT_ID, CloudType.Public);
+
+            // Create a new token validator with the JWKS URL
+            const validator = new TokenValidator({
+                jwksUri: entraJwksUri,
+            });
+
             // create a new token validator for the Microsoft Entra common tenant
-            if (!this.validator) {
-                // We need a new validator object which we will continue to use on subsequent
-                // requests so it can cache the Entra ID signing keys
-                // For multitenant, use:
-                // const entraJwksUri = await getEntraJwksUri();
-                const entraJwksUri = await getEntraJwksUri(AAD_APP_TENANT_ID);
-                this.validator = new TokenValidator({
-                    jwksUri: entraJwksUri
-                });
-                console.log ("Token validator created");
-            }
+            // if (!this.validator) {
+            //     // We need a new validator object which we will continue to use on subsequent
+            //     // requests so it can cache the Entra ID signing keys
+            //     // For multitenant, use:
+            //     // const entraJwksUri = await getEntraJwksUri();
+            //     const entraJwksUri = await getEntraJwksUri(AAD_APP_TENANT_ID);
+            //     this.validator = new TokenValidator({
+            //         jwksUri: entraJwksUri
+            //     });
+            //     console.log ("Token validator created");
+            // }
 
             // Use these options for single-tenant applications
             const options: ValidateTokenOptions = {
+                allowedTenants: [AAD_APP_TENANT_ID],
                 audience: `${AAD_APP_CLIENT_ID}`,
                 issuer: `https://login.microsoftonline.com/${AAD_APP_TENANT_ID}/v2.0`,
-                // NOTE: If this is a multi-tenant app, look for 
-                // issuer: "https://sts.windows.net/common/",
-                // Also you may wish to manage a list of allowed tenants
-                // and test them as well
-                //   allowedTenants: [process.env["AAD_APP_TENANT_ID"]],
                 scp: ["access_as_user"]
             };
 
             // validate the token
-            const validToken = await this.validator.validateToken(token, options);
+            const validToken = await validator.validateToken(token, options);
 
             userId = validToken.oid;
             userName = validToken.name;
@@ -66,7 +69,7 @@ class Identity {
             console.error(ex);
             throw new HttpError(401, "Unauthorized");
         }
-        
+
         // Get the consultant record for this user; create one if necessary
         let consultant: ApiConsultant = null;
         try {
