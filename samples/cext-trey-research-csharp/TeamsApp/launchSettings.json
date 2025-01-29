@@ -1,0 +1,13 @@
+{
+	"profiles": {
+		// Debug project within Teams
+		"Microsoft 365 Copilot (browser)": {
+			"commandName": "Project",
+			"launchUrl": "https://www.microsoft365.com/chat"
+		},
+		"Outlook (browser)": {
+			"commandName": "Project",
+			"launchUrl": "https://outlook.office.com/host/${{M365_APP_ID}}?login_hint=${{TEAMSFX_M365_USER_NAME}}"
+		}
+	}
+}
