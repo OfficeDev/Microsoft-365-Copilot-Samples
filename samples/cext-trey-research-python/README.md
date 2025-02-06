@@ -50,9 +50,9 @@ The sample showcases the following plugin features:
 * [Visual Studio Code](https://code.visualstudio.com/Download)
 * [NodeJS 18.x](https://nodejs.org/en/download)
 * [Teams Toolkit extension for VS Code](https://marketplace.visualstudio.com/items?itemName=TeamsDevApp.ms-teams-vscode-extension)
-  NOTE: If you want to build new projects of this nature, you'll need Teams Toolkit v5.6.1-alpha.039039fab.0 or newer
 * [Teams Toolkit CLI](https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-cli?pivots=version-three)
   (`npm install -g @microsoft/teamsapp-cli`)
+* [Azure Functions Core Tools v4](https://learn.microsoft.com/azure/azure-functions/functions-run-local?tabs=windows%2Cisolated-process%2Cnode-v4%2Cpython-v2%2Chttp-trigger%2Ccontainer-apps&pivots=programming-language-python)
 * (optional) [Postman](https://www.postman.com/downloads/)
 
 ### Setup instructions (one-time setup)
@@ -62,6 +62,12 @@ The sample showcases the following plugin features:
 1. Ensure the **Python extension** is installed in Visual Studio Code by searching for 'Python' in the Extensions view (Ctrl+Shift+X) and clicking Install.
 
 1. Press **CTRL+Shift+P** to open the command box and enter **Python: Create Environment** to create and activate your desired virtual environment.
+
+1. In the `env.local` file, set the `TENANT_NAME` variable with your tenant name.
+    ```bash
+    TENANT_NAME=<your-tenant-name>
+    ```
+    Replace <your-tenant-name> with your actual tenant name
 
 1. OPTIONAL: Copy the files from the **/sampleDocs** folder to OneDrive or SharePoint. Add the location of these files in the `OneDriveAndSharePoint` capability in the declarative copilot (**/appPackage/trey-declarative-copilot.json**).
 
