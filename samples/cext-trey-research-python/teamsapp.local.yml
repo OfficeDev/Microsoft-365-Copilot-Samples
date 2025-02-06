@@ -17,10 +17,9 @@ provision:
     writeToEnvironmentFile: 
       teamsAppId: TEAMS_APP_ID
 
-  - uses: script 
+  - uses: script
     with:
-      run:
-        echo "::set-teamsfx-env SECRET_STORAGE_ACCOUNT_CONNECTION_STRING=UseDevelopmentStorage=true" >> ./env/.env.local.user
+      run: echo SECRET_STORAGE_ACCOUNT_CONNECTION_STRING=UseDevelopmentStorage=true >> ./env/.env.local.user
 
   # Build Teams app package with latest env value
   - uses: teamsApp/zipAppPackage
