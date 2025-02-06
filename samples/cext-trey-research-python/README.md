@@ -63,7 +63,7 @@ The sample showcases the following plugin features:
 
 1. Press **CTRL+Shift+P** to open the command box and enter **Python: Create Environment** to create and activate your desired virtual environment.
 
-1. In the `env.local` file, set the `TENANT_NAME` variable with your tenant name.
+1. In the `./env/env.local` file, set the `TENANT_NAME` variable with your tenant name.
     ```bash
     TENANT_NAME=<your-tenant-name>
     ```
