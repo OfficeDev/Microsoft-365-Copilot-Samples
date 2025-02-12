@@ -23,7 +23,7 @@ def run_azure_functions():
 
         try:
             # Run the Azure Functions host using the subprocess module to call 'func start'
-            subprocess.run([func_path, "start"], shell=True, check=True)
+            subprocess.run([func_path, "start"], check=True)
         except subprocess.CalledProcessError as e:
             print(f"Error occurred while running Azure Functions: {e}")
             sys.exit(1)
