@@ -1,0 +1,43 @@
+{
+    "$schema": "https://developer.microsoft.com/json-schemas/copilot/declarative-agent/v1.3/schema.json",
+    "version": "v1.3",
+    "name": "Product support",
+    "description": "Product support agent that can help answer customer queries about Contoso Electronics products",
+    "instructions": "$[file('instruction.txt')]",
+    "capabilities": [
+        {
+            "name": "OneDriveAndSharePoint",
+            "items_by_url": [
+                {
+                    "url": "{URL}"
+                }
+            ]
+        }
+    ],
+    "conversation_starters": [
+        {
+            "title": "Product information",
+            "text": "Tell me about Eagle Air"
+        },
+        {
+            "title": "Returns policy",
+            "text": "What is the returns policy?"
+        },
+        {
+            "title": "Product information",
+            "text": "Can you provide information on a specific product?"
+        },
+        {
+            "title": "Product troubleshooting",
+            "text": "I'm having trouble with a product. Can you help me troubleshoot the issue?"
+        },
+        {
+            "title": "Repair information",
+            "text": "Can you provide information on how to get a product repaired?"
+        },
+        {
+            "title": "Contact support",
+            "text": "How can I contact support for help?"
+        }
+    ]
+}
