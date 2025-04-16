@@ -1,10 +1,19 @@
+---
+page_type: sample
+description: This sample demonstrates how to create a product support agent for Microsoft 365 Copilot.
+products:
+- copilot-m365
+languages:
+- json
+---
+
 # Product support declarative agent
 
 This sample demonstrates how to extend Microsoft 365 Copilot with a declarative agent to help with product support scenarios. The agent is designed to assist customer support employees by answering questions related to a range of products.
 
 It uses content from the product's documentation stored in Microsoft 365 to provide accurate and relevant answers.
 
-![Screenshot of Microsoft Edge browser showing a conversation with the Product support agent in Microsoft 365 Copilot.](./assets/product-support.png)
+![Screenshot of Microsoft Edge browser showing a conversation with the Product support agent in Microsoft 365 Copilot.](./assets/preview.png)
 
 > [!NOTE]
 > This sample uses a folder in OneDrive to store documents for ease of use, however you can use SharePoint Online using the same approach. The only difference is that you will need to use a SharePoint URL instead of a OneDrive URL.

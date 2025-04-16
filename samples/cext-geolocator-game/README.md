@@ -1,11 +1,20 @@
-# Geo Locator Game declarative agent
-This is a Geo Locator Game copilot that plays a game with users by asking a location around the World for users to guess. Geo Locator Game copilot is entertaining, fun and congratulates users when their guesses are correct.
+---
+page_type: sample
+description: This sample demonstrates how to create a Geo Locator Game declarative agent using Microsoft 365 Copilot.
+products:
+- copilot-m365
+languages:
+- json
+---
 
-> NOTE: Declarative agents were called "declarative copilots" during private preview; you may find the old terminology in some of our documentation and tools as they are being updated.
+# Geo Locator Game declarative agent
+
+This is a Geo Locator Game copilot that plays a game with users by asking a location around the World for users to guess. Geo Locator Game copilot is entertaining, fun and congratulates users when their guesses are correct.
 
 Follow the steps to run the Geo Locator Game declarative agent.
 
 ## Pre-requisites
+
 - [Node.js](https://nodejs.org/), supported versions: 16, 18
 - A [Microsoft 365 account for development](https://docs.microsoft.com/microsoftteams/platform/toolkit/accounts).
 - [Teams Toolkit Visual Studio Code Extension](https://aka.ms/teams-toolkit) version 5.0.0 and higher or [Teams Toolkit CLI](https://aka.ms/teamsfx-toolkit-cli)
@@ -21,4 +30,4 @@ Follow the steps to run the Geo Locator Game declarative agent.
 6. Select **Geo Locator Game** on the right rail.
 7. Enjoy playing Geo Locator Game with copilot, you can start by asking "Hi".
 
-![Geo Locator Game](geo-locator.gif)
+![Geo Locator Game](./assets/preview.gif)

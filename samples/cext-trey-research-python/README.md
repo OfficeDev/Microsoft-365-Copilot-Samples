@@ -1,3 +1,13 @@
+---
+page_type: sample
+description: This sample demonstrates how to create an agent that interacts with a consulting API to provide information about consultants and projects.
+products:
+- copilot-m365
+languages:
+- json
+- python
+---
+
 # Trey Research Copilot extension (anonymous version)
 
 Trey Research is a fictitious consulting company that supplies talent in the software and pharmaceuticals industries. The vision for this demo is to show the full potential of Copilot extensions in a relatable business environment.
