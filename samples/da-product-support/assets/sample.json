@@ -1,0 +1,55 @@
+[
+    {
+      "name": "officedev-microsoft-365-copilot-samples-da-product-support",
+      "source": "officedev",
+      "title": "Product support declararative agent",
+      "shortDescription": "This sample demonstrates how to create a product support agent using Microsoft 365 Copilot.",
+      "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/da-product-support",
+      "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/da-product-support",
+      "longDescription": [
+        "This sample demonstrates how to create a product support agent using Microsoft 365 Copilot. The agent can answer questions about products using content stored in Microsoft 365."
+      ],
+      "creationDateTime": "2025-04-16",
+      "updateDateTime": "2025-04-16",
+      "products": [
+        "Microsoft 365 Copilot"
+      ],
+      "metadata": [
+        {
+          "key": "LANGUAGE",
+          "value": "JSON"
+        },
+        {
+          "key": "TEAMS-PACKAGE",
+          "value": "Yes"
+        }
+      ],
+      "thumbnails": [
+        {
+          "type": "image",
+          "order": 50,
+          "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/raw/main/samples/da-product-support/assets/preview.png",
+          "alt": "Demonstration of the Product Support agent"
+        }
+      ],
+      "authors": [
+        {
+          "gitHubAccount": "garrytrinder",
+          "pictureUrl": "https://github.com/garrytrinder.png",
+          "name": "Garry Trinder"
+        }
+      ],
+      "references": [
+        {
+          "name": "Extend Microsoft 365 Copilot",
+          "description": "Learn more about how to extend Microsoft 365 Copilot",
+          "url": "https://aka.ms/extendcopilotm365"
+        },
+        {
+          "name": "Teams Toolkit for Visual Studio Code",
+          "description": "Learn more about the Teams Toolkit for Visual Studio Code.",
+          "url": "https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code-v5"
+        }
+      ]
+    }
+  ]

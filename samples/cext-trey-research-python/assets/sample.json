@@ -1,0 +1,55 @@
+[
+    {
+        "name": "officedev-microsoft-365-copilot-samples-cext-trey-research-python",
+        "source": "officedev",
+        "title": "Trey Research Python",
+        "shortDescription": "This sample demonstrates how to create an agent that interacts with a consulting API to provide information about consultants and projects.",
+        "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/cext-trey-research-python",
+        "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/cext-trey-research-python",
+        "longDescription": [
+            "This sample demonstrates how to create an agent that interacts with a consulting API to provide information about consultants and projects. The agent can answer questions about consultants and their projects"
+        ],
+        "creationDateTime": "2025-04-16",
+        "updateDateTime": "2025-04-16",
+        "products": [
+            "Microsoft 365 Copilot"
+        ],
+        "metadata": [
+            {
+                "key": "LANGUAGE",
+                "value": "python"
+            },
+            {
+                "key": "TEAMS-PACKAGE",
+                "value": "Yes"
+            }
+        ],
+        "thumbnails": [
+            {
+                "type": "image",
+                "order": 50,
+                "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/raw/main/samples/cext-trey-research-python/assets/preview.png",
+                "alt": "Screenshot of the Trey Research sample"
+            }
+        ],
+        "authors": [
+            {
+                "gitHubAccount": "bobgerman",
+                "pictureUrl": "https://github.com/bobgerman.png",
+                "name": "Bob German"
+            }
+        ],
+        "references": [
+            {
+                "name": "Extend Microsoft 365 Copilot",
+                "description": "Learn more about how to extend Microsoft 365 Copilot",
+                "url": "https://aka.ms/extendcopilotm365"
+            },
+            {
+                "name": "Teams Toolkit for Visual Studio Code",
+                "description": "Learn more about the Teams Toolkit for Visual Studio Code.",
+                "url": "https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code-v5"
+            }
+        ]
+    }
+]

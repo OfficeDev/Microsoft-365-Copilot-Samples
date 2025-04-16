@@ -1,0 +1,55 @@
+[
+    {
+      "name": "officedev-microsoft-365-copilot-samples-cext-geolocator-game",
+      "source": "officedev",
+      "title": "Geo Locator Game",
+      "shortDescription": "This sample demonstrates how to create a Geo Locator Game declarative agent using Microsoft 365 Copilot.",
+      "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/cext-geolocator-game",
+      "downloadUrl": "https://pnp.github.io/download-partial/?url=https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/tree/main/samples/cext-geolocator-game",
+      "longDescription": [
+        "This sample demonstrates how to create a Geo Locator Game declarative agent using Microsoft 365 Copilot. The game allows users to guess the location of a place based on clues provided by the agent. The agent provides hints, celebrates correct guesses, and keeps the game engaging with humor and fun facts."
+      ],
+      "creationDateTime": "2025-04-16",
+      "updateDateTime": "2025-04-16",
+      "products": [
+        "Microsoft 365 Copilot"
+      ],
+      "metadata": [
+        {
+          "key": "LANGUAGE",
+          "value": "JSON"
+        },
+        {
+          "key": "TEAMS-PACKAGE",
+          "value": "Yes"
+        }
+      ],
+      "thumbnails": [
+        {
+          "type": "image",
+          "order": 50,
+          "url": "https://github.com/OfficeDev/Microsoft-365-Copilot-Samples/raw/main/samples/cext-geolocator-game/assets/preview.gif",
+          "alt": "Demonstration of the Geo Locator Game"
+        }
+      ],
+      "authors": [
+        {
+          "gitHubAccount": "aycabs",
+          "pictureUrl": "https://github.com/aycabs.png",
+          "name": "Ayca Bas"
+        }
+      ],
+      "references": [
+        {
+          "name": "Extend Microsoft 365 Copilot",
+          "description": "Learn more about how to extend Microsoft 365 Copilot",
+          "url": "https://aka.ms/extendcopilotm365"
+        },
+        {
+          "name": "Teams Toolkit for Visual Studio Code",
+          "description": "Learn more about the Teams Toolkit for Visual Studio Code.",
+          "url": "https://learn.microsoft.com/microsoftteams/platform/toolkit/teams-toolkit-fundamentals?pivots=visual-studio-code-v5"
+        }
+      ]
+    }
+  ]
