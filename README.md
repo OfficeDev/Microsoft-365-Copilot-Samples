@@ -6,13 +6,14 @@ This repository contains samples that show how to write [agents and plugins for 
 > These samples are intended for instructive and demonstration purposes and are not intended for use in production. Do not put them into production without upgrading them to production quality.
 
 > [!IMPORTANT]  
-> To run these samples , you must ensure that your development environment meets the [requirements](https://learn.microsoft.com/microsoft-365-copilot/extensibility/prerequisites).
+> To run these samples, you must ensure that your development environment meets the [requirements](https://learn.microsoft.com/microsoft-365-copilot/extensibility/prerequisites).
 
 ## Samples
 
 | Name    | Type |Language | Description
 | -------- | --- | :-------: | ------- |
 | Geo-Locator Game | Declarative Agent | [JSON](./samples/cext-geolocator-game) | Copilot plays a guessing game about geography |
+| Product support | Declarative Agent | [JSON](./samples/da-product-support) | Product support agent that uses content stored in Microsoft 365 to answer questions |
 | Trey Research | Declarative Agent with API Plugin | [TypeScript (no auth)](./samples//cext-trey-research/), [Python (no auth)](./samples/cext-trey-research-python) [TypeScript (OAuth 2.0)](./samples/cext-trey-research-auth/) | Handles billing and project assignments for a hypothetical consulting company |
 
 ## Contributing

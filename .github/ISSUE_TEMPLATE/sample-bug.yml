@@ -15,6 +15,10 @@ body:
       options:
         - cext-geolocator-game
         - cext-trey-research
+        - cext-trey-research-auth
+        - cext-trey-research-csharp
+        - cext-trey-research-python
+        - da-product-support
       default: 0
     validations:
       required: true
