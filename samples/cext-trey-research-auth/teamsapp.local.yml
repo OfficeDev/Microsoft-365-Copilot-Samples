@@ -3,6 +3,9 @@
 # Visit https://aka.ms/teamsfx-actions for details on actions
 version: v1.7
 
+additionalMetadata:
+  sampleTag: officedev-microsoft-365-copilot-samples-trey-research-auth
+
 provision:
   # Creates a new Microsoft Entra app to authenticate users if
   # the environment variable that stores clientId is empty
