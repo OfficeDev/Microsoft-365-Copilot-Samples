@@ -3,6 +3,9 @@
 # Visit https://aka.ms/teamsfx-actions for details on actions
 version: v1.5
 
+additionalMetadata:
+  sampleTag: officedev-microsoft-365-copilot-samples-trey-research
+
 provision:
   # Creates a Teams app
   - uses: teamsApp/create

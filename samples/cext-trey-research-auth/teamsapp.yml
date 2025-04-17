@@ -3,6 +3,9 @@
 # Visit https://aka.ms/teamsfx-actions for details on actions
 version: v1.7
 
+additionalMetadata:
+  sampleTag: officedev-microsoft-365-copilot-samples-trey-research-auth
+
 environmentFolderPath: ./env
 
 # Triggered when 'teamsapp provision' is executed

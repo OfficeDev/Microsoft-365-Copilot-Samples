@@ -4,6 +4,6 @@
 version: v1.2
 
 additionalMetadata:
-  sampleTag: Microsoft-Teams-Samples:cext-trey-research-csharp-csharp
+  sampleTag: officedev-microsoft-365-copilot-samples-trey-research-csharp
 
 environmentFolderPath: ./env

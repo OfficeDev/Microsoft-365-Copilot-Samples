@@ -4,7 +4,7 @@
 version: v1.2
 
 additionalMetadata:
-  sampleTag: Copilot-for-M365-Samples:cext-trey-research-python
+  sampleTag: officedev-microsoft-365-copilot-samples-trey-research-python
 
 provision:
   # Creates a Teams app
