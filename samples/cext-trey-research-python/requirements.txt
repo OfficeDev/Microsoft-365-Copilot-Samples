@@ -3,4 +3,4 @@ azure-data-tables
 uuid
 azure-functions
 debugpy
-requests==2.31.0
+requests==2.32.4
